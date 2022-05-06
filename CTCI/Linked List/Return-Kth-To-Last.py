@@ -7,20 +7,19 @@ class Node:
 
 class Solution:
   def Kth_To_Last(self, head: Node, k: int) -> Node:
-    dummy = Node(0, head)
-    cur = dummy
+    fast = head
 
-    cnt = 0
-    while dummy.next:
-      cnt += 1
-      dummy = dummy.next
-      if cnt == k:
-        break
+    for _ in range(k):
+      if fast:
+        fast = fast.next
     
-    if k > cnt:
-      return None
+    slow = head
 
-    return dummy
+    while fast:
+      slow = slow.next
+      fast = fast.next
+    
+    return slow
 
 # Tests
 nodelast = Node(6)
