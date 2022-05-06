@@ -11,13 +11,13 @@ class Solution:
     cur = head
     prev = None
 
-    nodeset = set()
+    hashset = set()
 
     while cur:
-      if cur.val in nodeset:
+      if cur.val in hashset:
         prev.next = cur.next
       else:
-        nodeset.add(cur.val)
+        hashset.add(cur.val)
         prev = cur
       cur = cur.next
     
